@@ -17,9 +17,17 @@
 | URL  | 是  | 机场地址  |
 | CONFIG| 是  | 账号密码  |
 | SCKEY  | 否  | Sever酱秘钥  |
-<br/>
-<b>其中URL的值必须是机场网站的地址，例如：https://example.com</b>,尾部不要加''' / '''号 
-<br/><b>config写法：一行账号一行密码</b>
+| PRINTMAIL | 否 | 是否输出账户邮箱|
+| DEBUG | 否 | 是否输出接口返回内容，调试用 |
+>[说明]
+>
+>其中URL的值必须是机场网站的地址，例如：https://example.com</b>,尾部不要加''' / '''号
+>
+><b>config写法：一行账号一行密码</b>
+>
+>printmail填1/0 默认为1（开启）
+>
+>debug默认为0（关闭），可填1
 
 3. 到`Actions`中创建一个workflow，运行一次，以后每天项目都会自动运行。<br/>
 4. 最后，可以到Run sign查看签到情况，同时也会也会将签到详情推送到Sever酱。
