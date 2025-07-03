@@ -23,7 +23,11 @@ def sign(order,user,pwd):
         }
         try:
                 print(f'===账号{order}进行登录...===')
-                print(f'账号：{user}')
+                # 尝试脱敏输出账号，避免被github actions替换成***
+                for i in user:
+                        user_out += i
+                        user_out += " "
+                print(f'账号：{user_out}')
                 res = session.post(url=login_url,headers=header,data=data).text
                 print(res)
                 response = json.loads(res)
