@@ -9,6 +9,7 @@ SCKEY = os.environ.get('SCKEY')
 
 pm = 1 if (os.environ.get('pm') == '') else os.environ.get('pm')
 debug = os.environ.get('debug')
+if debug:print(f"[debug]pm = {pm} {os.environ.get('pm')}")
 
 login_url = '{}/auth/login'.format(url)
 check_url = '{}/user/checkin'.format(url)
