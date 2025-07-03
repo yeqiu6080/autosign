@@ -1,4 +1,4 @@
-import requests, json, re, os
+import requests, json, os
 # 机场的地址
 url = os.environ.get('URL')
 # 配置用户名（一般是邮箱）
@@ -7,7 +7,7 @@ config = os.environ.get('CONFIG')
 # server酱
 SCKEY = os.environ.get('SCKEY')
 
-pm = 1 if os.environ.get('pm') == '' else os.environ.get('pm')
+pm = 1 if (os.environ.get('pm') == '') else os.environ.get('pm')
 debug = os.environ.get('debug')
 
 login_url = '{}/auth/login'.format(url)
