@@ -38,8 +38,8 @@ def sign(order,user,pwd):
                 res2 = session.post(url=check_url,headers=header).text
                 print('[debug]签到接口返回',res2)
                 result = json.loads(res2)
-                print(f'[info]第{order}个账号',result['msg'])
-                return f'[账号{user}]签到成功：{result['msg']}'
+                print(f"[info]第{order}个账号",result['msg'])
+                return f"[账号{user}]签到成功：{result['msg']}"
         except Exception as ex:
                 print('[error]第{order}个账号签到失败')
                 print("[error]签到时出现如下异常%s" % ex)
