@@ -7,6 +7,9 @@ config = os.environ.get('CONFIG')
 # server酱
 SCKEY = os.environ.get('SCKEY')
 
+pm = 1 if os.environ.get('pm') == '' else os.environ.get('pm')
+debug = os.environ.get('debug')
+
 login_url = '{}/auth/login'.format(url)
 check_url = '{}/user/checkin'.format(url)
 
@@ -28,14 +31,14 @@ def sign(order,user,pwd):
                 for i in user:
                         user_out += i
                         user_out += " "
-                print(f'账号：{user_out}')
+                if pm:print(f'账号：{user_out}')
                 res = session.post(url=login_url,headers=header,data=data).text
-                print(res)
+                if debug:print(res)
                 response = json.loads(res)
                 print(response['msg'])
                 # 进行签到
                 res2 = session.post(url=check_url,headers=header).text
-                print(res2)
+                if debug:print(res2)
                 result = json.loads(res2)
                 print(result['msg'])
                 content = result['msg']
@@ -63,5 +66,5 @@ if __name__ == '__main__':
         for i in range(user_quantity):
                 user = configs[i*2]
                 pwd = configs[i*2+1]
-                sign(i,user,pwd)
+                sign(i+1,user,pwd)
         
