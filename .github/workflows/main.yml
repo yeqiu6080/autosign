@@ -38,7 +38,5 @@ jobs:
           URL: ${{ secrets.URL }}
           SCKEY: ${{ secrets.SCKEY }}
           CONFIG: ${{ secrets.CONFIG }}
-          PRINTMAIL: ${{ secrets.pm }}
-          DEBUG: ${{ secrets.debug }}
         run: |
           python3 ./main.py
