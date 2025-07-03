@@ -26,7 +26,7 @@ def sign(order,user,pwd):
         'passwd': pwd
         }
         try:
-                print(f'===账号{order}进行登录...===')
+                print(f'===账号{order}进行签到流程...===')
                 # 尝试脱敏输出账号，避免被github actions替换成***
                 user_out = ''
                 for i in user:
@@ -34,12 +34,12 @@ def sign(order,user,pwd):
                         user_out += " "
                 if pm:print(f'账号：{user_out}')
                 res = session.post(url=login_url,headers=header,data=data).text
-                if debug:print(res)
+                if debug:print('[debug]',res)
                 response = json.loads(res)
                 print(response['msg'])
                 # 进行签到
                 res2 = session.post(url=check_url,headers=header).text
-                if debug:print(res2)
+                if debug:print('[debug]',res2)
                 result = json.loads(res2)
                 print(result['msg'])
                 content = result['msg']
@@ -56,7 +56,7 @@ def sign(order,user,pwd):
                         push_url = 'https://sctapi.ftqq.com/{}.send?title=机场签到&desp={}'.format(SCKEY, content)
                         requests.post(url=push_url)
                         print('推送成功')
-        print('===账号{order}签到结束===\n'.format(order=order))
+
 if __name__ == '__main__':
         configs = config.splitlines()
         if len(configs) %2 != 0 or len(configs) == 0:
