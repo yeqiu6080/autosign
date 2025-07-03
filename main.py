@@ -24,6 +24,7 @@ def sign(order,user,pwd):
         try:
                 print(f'===账号{order}进行登录...===')
                 # 尝试脱敏输出账号，避免被github actions替换成***
+                user_out = ''
                 for i in user:
                         user_out += i
                         user_out += " "
